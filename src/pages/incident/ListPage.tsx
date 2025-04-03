@@ -7,7 +7,6 @@ import {
   Code,
   Database,
   Eye,
-  MoreVertical,
   type LucideIcon
 } from "lucide-react"
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
