@@ -42,20 +42,19 @@ const IncidentResponseDashboard = () => {
   return (
     <Layout>
       {/* Automation Mode Switch */}
-      <div className="flex items-center justify-between mb-6">
-        
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <button 
-          className="flex items-center px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition"
+          className="flex items-center px-4 py-2 bg-gray-50 text-gray-700 rounded-lg hover:bg-gray-100 transition w-full sm:w-auto"
           onClick={() => navigate('/')}
         >
           <ArrowLeft className="w-5 h-5 mr-2 text-gray-500" />
           Back
         </button>
-        <div className="flex bg-gray-100 rounded-lg p-1">
+        <div className="flex bg-gray-100 rounded-lg p-1 w-full sm:w-auto">
           {(['assist', 'semi', 'auto'] as const).map((mode) => (
             <button 
               key={mode}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              className={`flex-1 sm:flex-none px-4 py-2 rounded-md text-sm font-medium transition-all ${
                 automationMode === mode 
                   ? 'bg-blue-500 text-white hover:bg-blue-600' 
                   : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
@@ -69,9 +68,9 @@ const IncidentResponseDashboard = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Main Panel */}
-        <div className="col-span-8 space-y-6">
+        <div className="lg:col-span-8 space-y-6">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <IncidentHeader 
               automationMode={automationMode}
@@ -319,7 +318,7 @@ const IncidentResponseDashboard = () => {
         </div>
         
         {/* Right Panel */}
-        <div className="col-span-4 space-y-6">
+        <div className="lg:col-span-4 space-y-6">
           {/* AI Confidence Indicator */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-200">
             <div className="p-6">
@@ -369,11 +368,11 @@ const IncidentResponseDashboard = () => {
               
               <div className="flex justify-between">
                 <Button variant="default" className="flex items-center gap-2">
-                  <ThumbsUp size={18} className="text-blue-500" />
+                  <ThumbsUp className="h-5 w-5 text-blue-500" />
                   <span>Helpful</span>
                 </Button>
                 <Button variant="default" className="flex items-center gap-2">
-                  <ThumbsDown size={18} className="text-gray-500" />
+                  <ThumbsDown className="h-5 w-5 text-gray-500" />
                   <span>Improvement</span>
                 </Button>
               </div>

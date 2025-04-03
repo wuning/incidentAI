@@ -32,37 +32,45 @@ export function IncidentHeader({ automationMode, incident }: IncidentHeaderProps
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden relative">
       <div className="absolute top-0 left-0 bottom-0 w-1 bg-red-500"></div>
-      <div className="p-6">
-        <div className="flex items-center">
-          <h2 className="text-xl font-semibold text-gray-900">{incident.title}</h2>
-          <div className="ml-3 px-2.5 py-0.5 bg-red-100 text-red-700 text-sm font-medium rounded">
+      <div className="p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 break-words">{incident.title}</h2>
+          <div className="sm:ml-3 px-2.5 py-0.5 bg-red-100 text-red-700 text-sm font-medium rounded w-fit">
             {incident.id}
           </div>
         </div>
 
         <div className="mt-4 grid gap-y-3">
-          <div className="flex items-center text-gray-600">
-            <Clock size={18} className="mr-2 shrink-0" />
-            <span className="min-w-[5rem] font-medium">Start Time:</span>
-            <span>{incident.startTime}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-gray-600">
+            <div className="flex items-center">
+              <Clock size={18} className="mr-2 shrink-0" />
+              <span className="min-w-[5rem] font-medium">Start Time:</span>
+            </div>
+            <span className="sm:ml-2">{incident.startTime}</span>
           </div>
 
-          <div className="flex items-center text-gray-600">
-            <AlertCircle size={18} className="mr-2 shrink-0" />
-            <span className="min-w-[5rem] font-medium">Impact:</span>
-            <span>{incident.impact}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-gray-600">
+            <div className="flex items-center">
+              <AlertCircle size={18} className="mr-2 shrink-0" />
+              <span className="min-w-[5rem] font-medium">Impact:</span>
+            </div>
+            <span className="sm:ml-2">{incident.impact}</span>
           </div>
 
-          <div className="flex items-center text-gray-600">
-            <Terminal size={18} className="mr-2 shrink-0" />
-            <span className="min-w-[5rem] font-medium">Services:</span>
-            <span>{incident.affectedServices.join(', ')}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-gray-600">
+            <div className="flex items-center">
+              <Terminal size={18} className="mr-2 shrink-0" />
+              <span className="min-w-[5rem] font-medium">Services:</span>
+            </div>
+            <span className="sm:ml-2 break-words">{incident.affectedServices.join(', ')}</span>
           </div>
 
-          <div className="flex items-center text-gray-600">
-            <BarChart2 size={18} className="mr-2 shrink-0" />
-            <span className="min-w-[5rem] font-medium">Business:</span>
-            <span>{incident.businessImpact}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-gray-600">
+            <div className="flex items-center">
+              <BarChart2 size={18} className="mr-2 shrink-0" />
+              <span className="min-w-[5rem] font-medium">Business:</span>
+            </div>
+            <span className="sm:ml-2 break-words">{incident.businessImpact}</span>
           </div>
         </div>
 
